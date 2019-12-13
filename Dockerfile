@@ -10,13 +10,12 @@ RUN apk update \
     && apk del tzdata \
     ## 清除安装软件及缓存
     && rm -rf /tmp/* /var/cache/apk/*
-##安装nginx
-RUN apk --update add --no-cache nginx \
-    && rm -rf /tmp/* /var/cache/apk/* \
-    ## 创建网站和日志目录
-    && mkdir -p /var/app
-
-
+##安装nodejs和npm
+RUN apk --update add --no-cache nodejs \
+    && --update add --no-cache npm
+    && rm -rf /tmp/* /var/cache/apk/*
+## 进到应用目录
+WORKDIR /var/app
 #开放端口
 EXPOSE 3000
 CMD ["npm","start","daemon off;"]
