@@ -12,7 +12,7 @@ RUN apk update \
     && rm -rf /tmp/* /var/cache/apk/*
 ##安装nodejs和npm
 RUN apk --update add --no-cache nodejs \
-    && --update add --no-cache npm
+    && --update add --no-cache npm \
     && rm -rf /tmp/* /var/cache/apk/*
 ## 进到应用目录
 WORKDIR /var/app
