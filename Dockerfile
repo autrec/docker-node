@@ -1,6 +1,8 @@
 FROM alpine
 #声明作者
 LABEL maintainer="node docker Autre <mo@autre.cn>"
+##设置环境变量
+ENV NODE_ENV=production
 #升级内核及软件
 RUN apk update \
     && apk upgrade \
