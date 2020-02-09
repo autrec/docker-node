@@ -2,7 +2,7 @@ FROM alpine
 #声明作者
 LABEL maintainer="node docker Autre <mo@autre.cn>"
 ##设置环境变量
-ENV NODE_ENV=production
+#ENV NODE_ENV=production
 #升级内核及软件
 RUN set -x \
     && apk update \
@@ -16,7 +16,8 @@ RUN set -x \
 ##安装nodejs和npm
 RUN set -x \
     && apk --update add --no-cache nodejs npm \
-    && rm -rf /tmp/* /var/cache/apk/*
+    && rm -rf /tmp/* /var/cache/apk/* \
+    && export NODE_ENV=production
 ## 进到应用目录
 WORKDIR /var/app
 #开放端口
