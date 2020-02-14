@@ -8,14 +8,15 @@ RUN set -x \
     && apk update \
     && apk upgrade \
     ##设置时区
-    && apk --update add --no-cache tzdata \
+    ##&& apk --update add --no-cache tzdata \
+    && apk add tzdata \
     && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-    && apk del tzdata \
+    && apk del tzdata
     ## 清除安装软件及缓存
-    && rm -rf /tmp/* /var/cache/apk/*
+    ##&& rm -rf /tmp/* /var/cache/apk/*
 ##安装nodejs和npm
 RUN set -x \
-    && apk --update add --no-cache nodejs npm \
+    && apk add nodejs npm \
     && rm -rf /tmp/* /var/cache/apk/* \
     && export NODE_ENV=production
 ## 进到应用目录
