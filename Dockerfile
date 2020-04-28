@@ -1,10 +1,6 @@
 FROM alpine
 #声明作者
 LABEL maintainer="node docker Autre <mo@autre.cn>"
-##设置环境变量
-ENV NODE_ENV=production
-##设置npm国内源
-ENV NPM_REGISTRY=https://registry.npm.taobao.org
 #升级内核及软件
 RUN set -x \
     && apk update \
@@ -17,11 +13,11 @@ RUN set -x \
     ## 清除安装软件及缓存
     ##&& rm -rf /tmp/* /var/cache/apk/*
 ##安装nodejs和npm
+##设置环境变量
+ENV NODE_ENV production
 RUN set -x \
     && apk add nodejs npm \
-    && rm -rf /tmp/* /var/cache/apk/* \
-    && export NODE_ENV=${NODE_ENV} \
-    && npm config set registry ${NPM_REGISTRY}
+    && rm -rf /tmp/* /var/cache/apk/*
 ## 进到应用目录
 WORKDIR /var/app
 #开放端口
