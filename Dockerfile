@@ -1,6 +1,6 @@
 FROM alpine
 #声明作者
-LABEL maintainer="node docker Autre <mo@autre.cn>"
+LABEL maintainer="a little <mo@autre.cn>"
 #升级内核及软件
 RUN set -x \
     && apk update \

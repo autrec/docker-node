@@ -1,3 +1,3 @@
 # run
 
-docker run -itd -v "${pwd}/":/var/app autres/node npm install&npm start
+docker run -itd -v "${pwd}/":/var/app ioutio/node npm install&npm start
